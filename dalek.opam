@@ -1,0 +1,12 @@
+opam-version: "1.2"
+version: "0.1"
+maintainer: "cmalune@gmail.com"
+authors: ["Edward Tate"]
+homepage: "https://gitlab.com/et4te/ocaml-dalek"
+bug-reports: "https://gitlab.com/et4te/ocaml-dalek/issues"
+dev-repo: "https://gitlab.com/et4te/ocaml-dalek.git"
+license: "MIT"
+build: [
+  ["cargo" "build" "--release"]
+  ["dune" "build"]
+]
