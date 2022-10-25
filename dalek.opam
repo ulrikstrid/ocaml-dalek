@@ -1,5 +1,5 @@
 opam-version: "1.2"
-version: "0.1"
+version: "0.3"
 maintainer: "cmalune@gmail.com"
 authors: ["Edward Tate"]
 homepage: "https://gitlab.com/et4te/ocaml-dalek"
