@@ -1,15 +1,16 @@
 [package]
 name = "dalek-rs"
 version = "0.1.0"
-authors = ["Edward Tate <cmalune@gmail.com>"]
+authors = ["Edward Tate <et4te@0fx.io>"]
+repository = "https://github.com/zfxlabs/ocaml-dalek"
 description = "An ed25519-dalek FFI stub for OCaml."
 
 [lib]
-crate-type = ["staticlib", "cdylib"]
+crate-type = ["rlib", "staticlib", "cdylib"]
 
 [dependencies]
 libc = "0.2.0"
-alien_ffi = "0.1.0"
+alien_ffi = { path = "../../../alien_ffi/src/libalien_ffi_rs" }
 rand = "0.7.1"
 sha2 = "^0.7.1"
 serde = "1.0.79"

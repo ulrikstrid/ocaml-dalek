@@ -1,11 +1,11 @@
 (data_only_dirs libdalek_rs)
 
-(executable
- (public_name main)
- (modules main binding)
+(library
+ (name dalek)
+ (public_name dalek)
+ (modules binding)
  (libraries alien_ffi bigstring unix threads)
- (link_deps libdalek_rs.a)
- (link_flags -linkall -thread -ccopt -pthread /ocaml-dalek/src/libdalek_rs/target/debug/libdalek_rs.a /.opam/default/lib/alien_ffi/c/libalien_ffi_c_stubs.a))
+ (library_flags :standard -linkall))
 
 (rule
  (targets libdalek_rs.a dlldalek_rs.so)
@@ -13,5 +13,5 @@
  (action
   (bash
    "\nmake -C libdalek_rs\n
-    \ncp libdalek_rs/target/debug/libdalek_rs.a libdalek_rs.a\n
-    \ncp libdalek_rs/target/debug/libdalek_rs.so dlldalek_rs.so\n")))
+    \ncp libdalek_rs/target/release/libdalek_rs.a libdalek_rs.a\n
+    \ncp libdalek_rs/target/release/libdalek_rs.so dlldalek_rs.so\n")))

@@ -1,12 +1,12 @@
 TARGET = libdalek_rs
 
-$(TARGET) = target/debug/libdalek_rs.a target/debug/libdalek_rs.so
+$(TARGET) = target/release/libdalek_rs.a target/release/libdalek_rs.so
 
-target/debug/libdalek_rs.a:
-	cargo build --offline
+target/release/libdalek_rs.a:
+	cargo build --offline --release
 
-target/debug/libdalek_rs.so:
-	cargo build --offline
+target/release/libdalek_rs.so:
+	cargo build --offline --release
 
 clean:
 	cargo clean
