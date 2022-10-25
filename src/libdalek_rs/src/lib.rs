@@ -60,53 +60,56 @@ pub struct Batch<'a> {
     public_keys: Vec<PublicKey>,
 }
 
-// impl<'a> Batch<'a> {
-//     pub fn new() -> Batch<'static> {
-// 	Batch { messages: vec![], signatures: vec![], public_keys: vec![] }
-//     }
-//     pub fn push_message(&mut self, message: &[u8]) {
-// 	self.messages.push(message)
-//     }
-//     pub fn push_signature(&mut self, signature: Signature) {
-// 	self.signatures.push(signature)
-//     }
-//     pub fn push_public_key(&mut self, public_key: PublicKey) {
-// 	self.public_keys.push(public_key)
-//     }
-// }
+impl<'a> Batch<'a> {
+    pub fn new() -> Batch<'static> {
+	Batch { messages: vec![], signatures: vec![], public_keys: vec![] }
+    }
 
-// #[no_mangle]
-// pub extern fn allocate_batch(_unit: Value) -> Value {
-//     caml_opaque::alloc::<Batch>(ops(&BATCH_OPS), Batch::new())
-// }
+    pub fn push_message(&mut self, message: &'a [u8]) {
+	self.messages.push(message)
+    }
 
-// #[no_mangle]
-// pub extern fn push_message(batch: Value, message: Value) {
-//     let mut batch = caml_opaque::acquire::<Batch>(batch);
-//     let message = caml_to_slice::<u8>(message);
-//     batch.push_message(message)
-// }
+    pub fn push_signature(&mut self, signature: Signature) {
+	self.signatures.push(signature)
+    }
 
-// #[no_mangle]
-// pub extern fn push_signature(batch: Value, signature: Value) {
-//     let mut batch = caml_opaque::acquire::<Batch>(batch);
-//     let signature = caml_opaque::acquire::<Signature>(signature);
-//     batch.push_signature(*signature)
-// }
+    pub fn push_public_key(&mut self, public_key: PublicKey) {
+	self.public_keys.push(public_key)
+    }
+}
 
-// #[no_mangle]
-// pub extern fn push_public_key(batch: Value, public_key: Value) {
-//     let mut batch = caml_opaque::acquire::<Batch>(batch);
-//     let public_key = caml_opaque::acquire::<PublicKey>(public_key);
-//     batch.push_public_key(*public_key)
-// }
+#[no_mangle]
+pub extern fn allocate_batch(_unit: Value) -> Value {
+    caml_opaque::alloc::<Batch>(ops(&BATCH_OPS), Batch::new())
+}
 
-// #[no_mangle]
-// pub extern fn verify_batch(batch: Value) -> Value {
-//     let batch = caml_opaque::acquire::<Batch>(batch);
-//     if ed25519_dalek::verify_batch(batch.messages.as_ref(), batch.signatures.as_ref(), batch.public_keys.as_ref()).is_ok() {
-// 	caml_true()
-//     } else {
-// 	caml_false()
-//     }
-// }
+#[no_mangle]
+pub extern fn push_message(batch: Value, message: Value) {
+    let batch = caml_opaque::acquire_mut::<Batch>(batch);
+    let message = caml_to_slice::<u8>(message);
+    batch.push_message(message)
+}
+
+#[no_mangle]
+pub extern fn push_signature(batch: Value, signature: Value) {
+    let batch = caml_opaque::acquire_mut::<Batch>(batch);
+    let signature = caml_opaque::acquire::<Signature>(signature);
+    batch.push_signature(*signature)
+}
+
+#[no_mangle]
+pub extern fn push_public_key(batch: Value, public_key: Value) {
+    let batch = caml_opaque::acquire_mut::<Batch>(batch);
+    let public_key = caml_opaque::acquire::<PublicKey>(public_key);
+    batch.push_public_key(*public_key)
+}
+
+#[no_mangle]
+pub extern fn verify_batch(batch: Value) -> Value {
+    let batch = caml_opaque::acquire::<Batch>(batch);
+    if ed25519_dalek::verify_batch(batch.messages.as_ref(), batch.signatures.as_ref(), batch.public_keys.as_ref()).is_ok() {
+	caml_true()
+    } else {
+	caml_false()
+    }
+}

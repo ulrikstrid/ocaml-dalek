@@ -31,4 +31,4 @@ module Batch = struct
   external push_public_key : t -> PublicKey.t -> unit = "push_public_key"
 end
 
-external verify_batch : Batch.t -> bool
+external verify_batch : Batch.t -> bool = "verify_batch"
