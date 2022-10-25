@@ -7,6 +7,5 @@ bug-reports: "https://gitlab.com/et4te/ocaml-dalek/issues"
 dev-repo: "https://gitlab.com/et4te/ocaml-dalek.git"
 license: "MIT"
 build: [
-  ["cargo" "build" "--release"]
-  ["dune" "build"]
+  ["dune" "build" "-p" name "-j" jobs]
 ]
