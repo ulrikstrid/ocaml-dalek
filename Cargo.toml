@@ -6,11 +6,12 @@ repository = "https://github.com/zfxlabs/ocaml-dalek"
 description = "An ed25519-dalek FFI stub for OCaml."
 
 [lib]
+path = "./src/libdalek_rs/"
 crate-type = ["rlib", "staticlib", "cdylib"]
 
 [dependencies]
 libc = "0.2.0"
-alien_ffi = { path = "../../alien_ffi/src/libalien_ffi_rs" }
+alien_ffi = { git = "https://github.com/zfxlabs/alien_ffi" }
 rand = "0.7.1"
 sha2 = "^0.7.1"
 serde = "1.0.79"
