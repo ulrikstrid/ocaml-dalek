@@ -1,12 +1,12 @@
 [package]
-name = "dalek-rs"
+name = "libdalek-rs"
 version = "0.1.0"
 authors = ["Edward Tate <et4te@0fx.io>"]
 repository = "https://github.com/zfxlabs/ocaml-dalek"
 description = "An ed25519-dalek FFI stub for OCaml."
 
 [lib]
-path = "./src/libdalek_rs/"
+path = "./src/libdalek_rs/src/lib.rs"
 crate-type = ["rlib", "staticlib", "cdylib"]
 
 [dependencies]
