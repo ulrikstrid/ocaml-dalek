@@ -11,7 +11,7 @@ crate-type = ["rlib", "staticlib", "cdylib"]
 
 [dependencies]
 libc = "0.2.0"
-alien_ffi = { git = "https://github.com/zfxlabs/alien_ffi" }
+libalien_ffi_rs = { git = "https://github.com/zfxlabs/alien_ffi" }
 rand = "0.7.1"
 sha2 = "^0.7.1"
 serde = "1.0.79"

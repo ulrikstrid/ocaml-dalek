@@ -3,11 +3,11 @@
   libdalek_rs = pkgs.rustPlatform.buildRustPackage {
     pname = "libdalek_rs";
     version = "0.0.1";
-    src = ./src/libdalek_rs/.;
+    src = ./.;
     cargoBuildFlags = "-p libdalek_rs";
 
     cargoLock = {
-      lockFile = ./src/libdalek_rs/Cargo.lock;
+      lockFile = ./Cargo.lock;
     };
 
     nativeBuildInputs = [ pkgs.pkg-config ];
