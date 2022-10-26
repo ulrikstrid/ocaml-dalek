@@ -8,6 +8,9 @@
 
     cargoLock = {
       lockFile = ./Cargo.lock;
+      outputHashes = {
+        "libalien_ffi_rs-0.1.0" = "sha256-1iex89DGpb1FhUIQ1p3Vubsr1G/drk89Y0VNq7/theI=";
+      };
     };
 
     nativeBuildInputs = [ pkgs.pkg-config ];
