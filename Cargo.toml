@@ -1,5 +1,5 @@
 [package]
-name = "libdalek-rs"
+name = "libdalek_rs"
 version = "0.1.0"
 authors = ["Edward Tate <et4te@0fx.io>"]
 repository = "https://github.com/zfxlabs/ocaml-dalek"

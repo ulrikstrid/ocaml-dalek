@@ -1,5 +1,5 @@
 extern crate rand;
-extern crate alien_ffi;
+extern crate libalien_ffi_rs as alien_ffi;
 extern crate ed25519_dalek;
 
 mod keypair;

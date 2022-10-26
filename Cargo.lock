@@ -199,7 +199,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fc7fcc620a3bff7cdd7a365be3376c97191aeaccc2a603e600951e452615bf89"
 
 [[package]]
-name = "libdalek-rs"
+name = "libdalek_rs"
 version = "0.1.0"
 dependencies = [
  "ed25519-dalek",
