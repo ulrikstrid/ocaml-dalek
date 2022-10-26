@@ -7,11 +7,11 @@
 ;;  (modules main binding)
 ;;  (libraries alien_ffi bigstring unix threads)
 ;;  (link_deps libdalek_rs.a)
-;;  (link_flags -linkall -thread -ccopt -pthread /path/to/ocaml-dalek/src/libdalek_rs/target/release/libdalek_rs.a /path/to/.opam/default/lib/alien_ffi/c/libalien_ffi_c_stubs.a))
+;;  (link_flags -linkall -thread -ccopt -pthread /home/foo/ocaml-dalek/src/libdalek_rs/target/release/libdalek_rs.a /home/foo/.opam/default/lib/alien_ffi/c/libalien_ffi_c_stubs.a))
 
 (library
- (name dalek)
- (public_name dalek)
+ (name ocaml_dalek)
+ (public_name ocaml_dalek)
  (modules binding)
  (libraries alien_ffi bigstring unix threads)
  (library_flags :standard -linkall))
