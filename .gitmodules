@@ -1,3 +1,0 @@
-[submodule "alien_ffi"]
-	path = alien_ffi
-	url = git@github.com:zfxlabs/alien_ffi.git
