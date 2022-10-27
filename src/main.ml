@@ -1,4 +1,4 @@
-open Binding
+open Ocaml_dalek.Binding
 open Alien_ffi.Interface
 open Alien_ffi.Bench
 
